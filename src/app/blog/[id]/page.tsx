@@ -7,6 +7,12 @@ interface BirdDetailPageProps {
   params: { id: string };
 }
 
+export async function generateStaticParams() {
+  return birdsData.map((bird) => ({
+    id: bird.id.toString(), // Convert id to string if it's a number
+  }));
+}
+
 const BirdDetailPage = ({ params }: BirdDetailPageProps) => {
   const bird = birdsData.find((b) => b.id === parseInt(params.id, 10));
 
