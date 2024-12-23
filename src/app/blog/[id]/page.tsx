@@ -3,17 +3,9 @@ import { notFound } from "next/navigation";
 import CommentSection from "@/app/components/comment";
 import Image from "next/image";
 
-interface BirdDetailPageProps {
-  params: { id: string };
-}
 
-export async function generateStaticParams() {
-  return birdsData.map((bird) => ({
-    id: bird.id.toString(), // Convert id to string if it's a number
-  }));
-}
 
-const BirdDetailPage = ({ params }: BirdDetailPageProps) => {
+const BirdDetailPage = ({ params }: {params:{id:string}}) => {
   const bird = birdsData.find((b) => b.id === parseInt(params.id, 10));
 
   if (!bird) return notFound(); // If the bird is not found, show a 404 page
