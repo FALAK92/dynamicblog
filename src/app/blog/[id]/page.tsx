@@ -5,8 +5,10 @@ import Image from "next/image";
 
 
 
-const BirdDetailPage = ({ params }: {params:{id:string}}) => {
-  const bird = birdsData.find((b) => b.id === parseInt(params.id, 10));
+const BirdDetailPage = async ({params}:{params:Promise<{id:string}>}) => {
+  
+  const { id } = await params; 
+  const bird = birdsData.find((b) => b.id === parseInt(id,10) );
 
   if (!bird) return notFound(); // If the bird is not found, show a 404 page
 
