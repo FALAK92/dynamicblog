@@ -2,6 +2,7 @@
 "use client"
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import Link from 'next/link';
 
 const Hero = () => {
   useEffect(() => {
@@ -34,9 +35,11 @@ const Hero = () => {
         <p className="text-xl text-[#f5c4c4] md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">
           Explore the beauty of rare birds from across the globe. Learn, protect, and preserve their unique habitats.
         </p>
+        <Link href={'/blog'}>
         <button className="hero-button text-[#f5c4c4] px-12 py-4 bg-gradient-to-r from-green-400 to-[#b26363] text-lg font-semibold rounded-lg shadow-xl hover:scale-105 transform transition-all ease-in-out duration-300">
           Start Exploring
         </button>
+        </Link>
       </div>
     </div>
   );
